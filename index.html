@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Yatzy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="game_wrapper" id='yatzy'>
+
+    <div class="game_board">
+      <h1>Yatzy!</h1>
+      <div id="startform">
+        <label for="player1" class="startform__label">Player 1:</label> <input type="text" name="player1"
+          class="form_player_name" id="player1_form_name"><br>
+        <label for="player1" class="startform__label">Player 2:</label> <input type="text" name="player2"
+          class="form_player_name" id="player2_form_name"><br>
+        <label for="player1" class="startform__label">Player 3:</label> <input type="text" name="player3"
+          class="form_player_name" id="player3_form_name"><br>
+        <label for="player1" class="startform__label">Player 4:</label> <input type="text" name="player4"
+          class="form_player_name" id="player4_form_name"><br>
+        <button id="startbtn">Start a new game</button>
+      </div>
+      <div id="winner_box" class="center display_none">
+        <h1><span id="winner_name"></span> won!</h1>
+      </div>
+      <div id="newgamebox" class="display_none center">
+        <button id="newgamebtn">New game!</button>
+      </div>
+      <div id="messagebox" class="display_none">
+        <p id="messages">Start a new game.</p>
+      </div>
+
+      <div class="dice_container display_none" id="dicebox">
+        <div class="dice_dice"> </div>
+        <div class="dice_dice"> </div>
+        <div class="dice_dice"> </div>
+        <div class="dice_dice"> </div>
+        <div class="dice_dice"> </div>
+        <div class="dice_checkbox"><input type="checkbox" name="1" class="dicecheckbox" id="t1"></div>
+        <div class="dice_checkbox"><input type="checkbox" name="2" class="dicecheckbox" id="t2"></div>
+        <div class="dice_checkbox"><input type="checkbox" name="3" class="dicecheckbox" id="t3"></div>
+        <div class="dice_checkbox"><input type="checkbox" name="4" class="dicecheckbox" id="t4"></div>
+        <div class="dice_checkbox"><input type="checkbox" name="5" class="dicecheckbox" id="t5"></div>
+        <button class="dice_button" id="throwbtn">Roll the dice!</button><br><br>
+      </div>
+    </div>
+
+  
+    <div class="game_protocoll">
+      <table>
+        <colgroup>
+          <col>
+          <col class="player" id="player1_col">
+          <col class="player" id="player2_col">
+          <col class="player" id="player3_col">
+          <col class="player" id="player4_col">
+        </colgroup>
+        <tr class="dark">
+          <td>Player</td>
+          <td class="light player_name"></td>
+          <td class="light player_name"></td>
+          <td class="light player_name"></td>
+          <td class="light player_name"></td>
+        </tr>
+        <tr>
+          <td>Ones</td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+        </tr>
+        <tr>
+          <td>Twos</td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+        </tr>
+        <tr>
+          <td>Threes</td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+        </tr>
+        <tr>
+          <td>Fours</td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+        </tr>
+        <tr>
+          <td>Fives</td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+        </tr>
+        <tr>
+          <td>Sixes</td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+        </tr>
+        <tr class="dark">
+          <td>Total</td>
+          <td class="light sum"></td>
+          <td class="light sum"></td>
+          <td class="light sum"></td>
+          <td class="light sum"></td>
+        </tr>
+        <tr>
+          <td>Pair</td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+        </tr>
+        <tr>
+          <td>Two Pairs</td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+        </tr>
+        <tr>
+          <td>Three of a Kind</td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+        </tr>
+        <tr>
+          <td>Four of a Kind</td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+        </tr>
+        <tr>
+          <td>Small Straight</td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+        </tr>
+        <tr>
+          <td>Large Straight</td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+        </tr>
+        <tr>
+          <td>Full House</td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+        </tr>
+        <tr>
+          <td>Chance</td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+        </tr>
+        <tr class="dark">
+          <td class="row">Yatzy</td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+          <td class="input"></td>
+        </tr>
+        <tr class="dark">
+          <td colspan="1">Total</td>
+          <td class="light total"></td>
+          <td class="light total"></td>
+          <td class="light total"></td>
+          <td class="light total"></td>
+        </tr>
+      </table>
+      <br>
+    </div>
+  </div>
+  <script src="yatzy.js"></script>
+</body>
+
+</html>
